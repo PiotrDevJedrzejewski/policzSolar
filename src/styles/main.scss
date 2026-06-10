@@ -1,0 +1,23 @@
+@use 'variables' as *;
+@use 'reset';
+@use 'mixins' as *;
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  color: $color-text;
+  background-color: $color-text-muted;
+}
+
+h1 { font-size: $font-size-2xl; font-weight: $font-weight-bold; }
+h2 { font-size: $font-size-xl;  font-weight: $font-weight-bold; }
+h3 { font-size: $font-size-lg;  font-weight: $font-weight-medium; }
+
+a:hover {
+  color: $color-primary;
+}
+
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,187 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: $navbar-height;
+  background: $color-primary-dark;
+  box-shadow: $shadow-sm;
+
+  &__inner {
+    @include container;
+    @include flex-between;
+    height: 100%;
+  }
+
+  &__logo {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    letter-spacing: -0.5px;
+    transition: color $transition-fast;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+
+    &-container {
+      width: 60px;
+      height: 60px;
+      margin-right: $spacing-xs;
+
+      &:hover {
+        transform: scale(1.05);
+        transition: transform $transition-fast;
+      }
+    }
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &:hover {
+      color: $color-text-secondary;
+    }
+  }
+
+  // ── Desktop nav ─────────────────────────────────────────────────────────────
+  &__nav {
+    @include respond-below(md) {
+      display: none;
+      position: absolute;
+      top: $navbar-height;
+      left: 0;
+      right: 0;
+      background: $color-secondary;
+      box-shadow: $shadow-md;
+      padding: $spacing-md;
+
+      &--open {
+        display: block;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: $spacing-sm;
+    align-items: center;
+
+    @include respond-below(md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    &--dropdown {}
+  }
+
+  &__link {
+    @include button-reset;
+    @include focus-ring;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-muted;
+    transition: color $transition-fast, background $transition-fast;
+
+    &:hover,
+    &--active,
+    &--open {
+      color: $color-text;
+      background: rgba($color-primary, 0.08);
+    }
+
+    &--active {
+      color: $color-primary;
+    }
+  }
+
+  &__chevron {
+    font-size: 10px;
+    transition: transform $transition-fast;
+
+    .navbar__link--open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  // ── Dropdown ─────────────────────────────────────────────────────────────────
+  &__dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + $spacing-xs);
+    left: 0;
+    min-width: 200px;
+    background: $color-secondary;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-md;
+    padding: $spacing-xs 0;
+    z-index: 10;
+
+    &--open {
+      display: block;
+    }
+
+    @include respond-below(md) {
+      position: static;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      padding: 0 0 0 $spacing-md;
+    }
+  }
+
+  &__dropdown-link {
+    display: block;
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    transition: background $transition-fast, color $transition-fast;
+
+    &:hover {
+      background: rgba($color-primary, 0.08);
+      color: $color-text;
+    }
+
+    &--active {
+      color: $color-primary;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  // ── Hamburger ────────────────────────────────────────────────────────────────
+  &__hamburger {
+    @include button-reset;
+    @include focus-ring;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: $spacing-xs;
+
+    @include respond-below(md) {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: $color-text;
+      border-radius: 2px;
+      transition: transform $transition-fast, opacity $transition-fast;
+    }
+  }
+}

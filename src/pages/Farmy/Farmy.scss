@@ -1,0 +1,22 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.farmy-page {
+  &__title {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__desc {
+    color: $color-text-muted;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__placeholder {
+    @include card;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+}

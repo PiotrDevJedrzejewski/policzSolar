@@ -1,0 +1,19 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.layout {
+  display: flex;
+  position: relative;
+
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(90deg, $color-primary 0%, $color-text 50%, $color-primary 100%);
+
+  &__main {
+    display: flex;
+    flex: 1;
+    padding: $spacing-xl 0;
+    justify-content: center;
+  }
+
+}

@@ -1,0 +1,106 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.contact {
+    &-form {
+        display: flex;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(18, 17, 17, 0.554);
+        backdrop-filter: blur(5px);
+        padding: $spacing-lg;
+        z-index: 1000;
+
+
+        &__content {
+            position: relative;
+            background-color: $color-text;
+            border-radius: $border-radius-lg;
+            padding: $spacing-lg;
+            margin: auto;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: $shadow-lg;
+        }
+
+        &__exit-btn {
+            position: absolute;
+            top: $spacing-md;
+            right: $spacing-md;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+
+            >button {
+                background: none;
+                border: none;
+                font-size: $font-size-lg;
+                cursor: pointer;
+                background-color: $color-secondary;
+                color: $color-text;
+                border-radius: $border-radius-md;
+                width: 32px;
+                height: 32px;
+
+                &:hover {
+                    background-color: $color-secondary;
+                    color: $color-text-secondary;
+                }
+            }
+        }
+    }
+
+    &-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: $spacing-lg;
+        margin-bottom: $spacing-lg;
+    }
+
+    &-button {
+        background-color: $color-primary;
+        color: $color-text;
+        border: none;
+        border-radius: $border-radius-md;
+        padding: $spacing-sm $spacing-lg;
+        font-size: $font-size-base;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+    }
+}
+
+.contact-form__input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-md;
+
+    label {
+        color: $color-secondary;
+        margin-bottom: $spacing-sm;
+        font-weight: $font-weight-medium;
+    }
+
+    input,
+    textarea {
+        padding: $spacing-sm;
+        border: 1px solid #ccc;
+        border-radius: $border-radius-sm;
+        font-size: $font-size-base;
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+}

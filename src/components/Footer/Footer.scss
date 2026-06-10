@@ -1,0 +1,48 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  margin-top: auto;
+  background: $color-secondary;
+  padding: $spacing-lg 0;
+
+  &__inner {
+    @include container;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__brand {
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    font-size: $font-size-sm;
+  }
+
+  &__nav {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &.active {
+      color: $color-primary;
+    }
+  }
+
+  &__copy {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+}
