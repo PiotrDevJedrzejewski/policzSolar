@@ -1,0 +1,123 @@
+@use '../../styles/variables' as *;
+
+.cwd {
+    &-add {
+        background-color: $color-secondary;
+        margin: $spacing-lg $spacing-3xl;
+        margin-top: $spacing-3xl;
+        border-radius: $border-radius-lg;
+        padding: $spacing-lg;
+        box-shadow: $shadow-lg;
+
+        &-container {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            padding-left: calc($spacing-lg + 300px);
+
+            &-column {
+                &__img-container {
+                    position: absolute;
+                    left: 10px;
+                    bottom: -$spacing-lg;
+                    width: 300px;
+                }
+
+                &__img {
+                    width: 300px;
+                    height: 300px;
+
+                    object-fit: cover;
+                }
+
+                &__title {}
+
+                &__subtitle {}
+
+                &__subtitle-2 {}
+
+                &__table {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: auto auto;
+
+                    &-item {
+                        &-wrapper {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: $spacing-md;
+                            padding: $spacing-md 0;
+                        }
+
+                        &-icon {
+                            color: #167a00;
+                            font-size: $font-size-xl;
+                        }
+
+                        &-text {
+                            font-weight: $font-weight-medium;
+                        }
+                    }
+                }
+
+
+                &__button-wrapper {
+                    display: grid;
+
+                    grid-template-columns: 50px 1fr;
+                    grid-template-rows: auto auto auto;
+
+                    align-items: center;
+                    justify-content: center;
+                    gap: $spacing-md;
+                    background-color: $color-text;
+                    border-radius: $border-radius-lg;
+                    padding: $spacing-lg;
+                    box-shadow: $shadow-lg;
+                    position: absolute;
+                    right: 10px;
+                }
+
+                &__button-icon {
+                    font-size: 48px;
+                    color: #188000;
+
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 4;
+                }
+
+                &__button-title {
+                    font-size: $font-size-xl;
+                    font-weight: $font-weight-medium;
+                    color: $color-text-third;
+                }
+
+                &__button-btn {
+                    margin: 0 auto;
+
+                    button {
+                        background-color: $color-primary-dark;
+                        color: $color-text;
+                        border: none;
+                        border-radius: $border-radius-md;
+                        padding: $spacing-sm $spacing-lg;
+                        font-size: $font-size-md;
+                        font-weight: $font-weight-medium;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: darken($color-primary-dark, 10%);
+                        }
+                    }
+                }
+
+                &__button-text {
+                    font-size: $font-size-sm;
+                    color: $color-text-third;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

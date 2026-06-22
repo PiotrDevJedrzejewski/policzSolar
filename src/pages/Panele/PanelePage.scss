@@ -2,22 +2,8 @@
 @use '../../styles/mixins' as *;
 
 .panele-page {
-  &__title {
-    margin-bottom: $spacing-sm;
-  }
-
-  &__desc {
-    color: $color-text-muted;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__placeholder {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    gap: $spacing-sm;
-    font-size: $font-size-sm;
-    color: $color-text-muted;
-    padding-bottom: $spacing-2xl;
-  }
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
 }

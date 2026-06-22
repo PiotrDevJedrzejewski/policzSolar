@@ -6,6 +6,8 @@
   background: transparent;
   margin: 0 $spacing-lg;
   position: relative;
+  display: flex;
+  flex: 1;
 
   &__inner {
     @include container;

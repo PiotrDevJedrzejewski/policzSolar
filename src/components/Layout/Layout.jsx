@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router';
 import Navbar from '../Navbar/Navbar';
-import CalculatorInput from '../CalculatorInput/CalculatorInput';
 import Footer from '../Footer/Footer';
 import './Layout.scss';
 import ContactForm from '../ContactForm/ContactForm';
@@ -11,11 +10,10 @@ export default function Layout() {
   return (
     <div className="layout">
       <Navbar />
-      <CalculatorInput />
       <main className="layout__main">
-        <div className="layout__container">
-          <Outlet />
-        </div>
+
+        {/* Panele default */}
+        <Outlet />
 
       </main>
       <Footer />

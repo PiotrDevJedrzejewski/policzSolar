@@ -1,0 +1,150 @@
+@use '../../styles/variables' as *;
+
+.cwd {
+    &-next-title {
+        padding: $spacing-lg;
+        text-align: center;
+
+        &__title {
+            color: $color-text-third;
+            font-size: 40px;
+        }
+    }
+
+    &-three-column {
+        display: flex;
+        flex-direction: row;
+        padding: $spacing-lg;
+        gap: $spacing-lg;
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            gap: $spacing-md;
+
+            border: 1px solid #efefef;
+            border-radius: $border-radius-md;
+            padding: $spacing-md;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            &-first-row {
+                display: flex;
+                gap: $spacing-md;
+
+                &-number {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 80px;
+                    height: 64px;
+
+                    >svg {
+                        color: #008c1a;
+                        font-size: 48px;
+                    }
+                }
+
+                &-text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $color-text-third;
+                    font-size: $font-size-lg;
+                }
+            }
+
+            &-second-row {
+                display: flex;
+                gap: $spacing-md;
+
+                &-icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 80px;
+                    flex-shrink: 0;
+
+                    >svg {
+                        color: #008c1a;
+                        font-size: 58px;
+                    }
+                }
+
+                &-text {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $color-text-third;
+                    font-size: $font-size-md;
+
+                }
+            }
+        }
+
+    }
+
+    &-guarantee {
+        display: grid;
+        grid-template-columns: 160px auto 250px;
+        justify-content: center;
+        align-items: center;
+        background-color: #edffed;
+        margin: $spacing-lg $spacing-3xl;
+        border-radius: $border-radius-lg;
+        box-shadow: $shadow-lg;
+
+        &__icon-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 160px;
+            height: 160px;
+
+            >svg {
+                color: #008c1a;
+                font-size: 104px;
+                border: 2px solid #008c1a;
+                border-radius: 50%;
+                padding: $spacing-md;
+            }
+        }
+
+        &__title-wrapper {}
+
+        &__title-main {
+            padding-bottom: $spacing-sm;
+            color: $color-text-third;
+            font-size: 28px;
+            font-weight: $font-weight-medium;
+        }
+
+        &__title-sub {
+            color: $color-text-third;
+            font-size: 18px;
+            padding-right: $spacing-3xl;
+        }
+
+        &__rating {
+            &-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: $spacing-sm;
+                flex-direction: column;
+            }
+
+            &-number {
+                color: $color-text-third;
+                font-size: 38px;
+                font-weight: $font-weight-bold;
+            }
+
+            &-stars {
+                display: flex;
+                color: #ffe100;
+                font-size: 42px;
+            }
+        }
+    }
+}

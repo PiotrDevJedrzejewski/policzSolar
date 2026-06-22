@@ -1,0 +1,17 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use 'sass:color';
+
+@use './cwd-results';
+@use './cwd-next';
+@use './cwd-add';
+@use './cwd-footer';
+
+.cyrograf-with-devil {
+    display: flex;
+    flex: 1;
+    margin: 0 $spacing-lg;
+    border-radius: $border-radius-lg;
+    background-color: $color-text;
+    flex-direction: column;
+}

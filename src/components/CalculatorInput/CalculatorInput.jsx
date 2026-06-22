@@ -1,6 +1,6 @@
-import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useSolar } from '../../context/SolarContext';
-import React, { useState } from 'react';
+import React from 'react';
 import './CalculatorInput.scss';
 import StepOwnership from '../wizard/StepOwnership';
 import StepZipcode from '../wizard/StepZipcode';
@@ -16,11 +16,11 @@ import StepHeatingType from '../wizard/StepHeatingType';
 import StepPlanning from '../wizard/StepPlanning';
 import StepDotation from '../wizard/StepDotation';
 import StepHorizonOfInvestment from '../wizard/StepHorizonOfInvestment';
-import FinalStep from '../wizard/FinalStep';
 import Gauge from '../clock/Gauge';
 
 
 export default function CalculatorInput() {
+  const navigate = useNavigate();
   const { inputs, updateField, resetInputs, stage, setStage, resetAll } = useSolar();
 
   const hasBattery = (inputs.planingInTwoYears || []).includes('home-battery');
@@ -40,14 +40,17 @@ export default function CalculatorInput() {
     { id: 12, component: <StepPlanning /> },
     { id: 13, component: <StepDotation />, skip: !hasBattery },
     { id: 14, component: <StepHorizonOfInvestment /> },
-    { id: 15, component: <FinalStep /> },
   ];
 
   const activeStages = stages.filter((s) => !s.skip);
 
   const goNext = () => {
     const next = stages.find((s) => s.id > stage && !s.skip);
-    if (next) setStage(next.id);
+    if (next) {
+      setStage(next.id);
+    } else {
+      navigate('/wyniki');
+    }
   };
 
   const goPrev = () => {
@@ -56,7 +59,7 @@ export default function CalculatorInput() {
   };
 
   const isFirst = !activeStages.some((s) => s.id < stage);
-  const isLast = stage === 15;
+  const isLast = !activeStages.some((s) => s.id > stage);
 
   return (
     <section className="calc-input">
@@ -72,21 +75,17 @@ export default function CalculatorInput() {
         </div>
         <section className="calc-input__inner-content">
           {stages.find((s) => s.id === stage)?.component}
-          {!isLast && (
-            <div className="calc-gauge">
-              <p className="calc-gauge-steps">Krok: <strong>{stage}/15</strong></p>
+          <div className="calc-gauge">
+            <p className="calc-gauge-steps">Krok: <strong>{activeStages.findIndex((s) => s.id === stage) + 1}/{activeStages.length}</strong></p>
 
-              <Gauge />
+            <Gauge />
 
-              <button className="steps-button" onClick={goNext}>Dalej</button>
-            </div>
-          )}
+            <button className="steps-button" onClick={goNext}>Dalej</button>
+          </div>
         </section>
-        {!isLast && (
-          <button className="calc__resetButton" onClick={resetAll}>
-            Reset
-          </button>
-        )}
+        <button className="calc__resetButton" onClick={resetAll}>
+          Reset
+        </button>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ const NAV_ITEMS = [
     label: 'Sprawdź inne produkty',
     children: [
       { label: 'Panele słoneczne', to: '/' },
-      { label: 'Pompy ciepła', to: '/pompy-ciepla' },
+      { label: 'Magazyny energii', to: '/magazyny-energii' },
       { label: 'Farmy fotowoltaiczne', to: '/farmy' },
     ],
   },
@@ -105,11 +105,11 @@ export default function Navbar() {
         </button>
 
         <nav className={`navbar__nav${mobileOpen ? ' navbar__nav--open' : ''}`}>
-          <ul className="navbar__list">
+          {/* <ul className="navbar__list">
             {NAV_ITEMS.map((item) => (
               <NavItem key={item.label} item={item} />
             ))}
-          </ul>
+          </ul> */}
         </nav>
       </div>
     </header>

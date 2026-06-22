@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
+import { calculateSolarYield } from '../utils/solarCalculator'
 
 const SolarContext = createContext(null);
 
@@ -47,8 +48,10 @@ export function SolarProvider({ children }) {
     useLocalStorage.remove('solar_discount');
   };
 
+  const results = calculateSolarYield(inputs);
+
   return (
-    <SolarContext.Provider value={{ inputs, updateField, resetInputs, stage, setStage, discount, setDiscount, showContactForm, resetAll, setShowContactForm }}>
+    <SolarContext.Provider value={{ inputs, updateField, resetInputs, stage, setStage, discount, setDiscount, showContactForm, resetAll, setShowContactForm, results }}>
       {children}
     </SolarContext.Provider>
   );
