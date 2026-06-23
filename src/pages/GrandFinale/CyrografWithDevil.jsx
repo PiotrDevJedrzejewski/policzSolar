@@ -90,7 +90,7 @@ const CyrografWithDevil = () => {
                             </div>
                         </div>
                         <div className="cwd-results-second-column__button-container">
-                            <button className="cwd-results-second-column__button-container-button" onClick={() => alert("Skontaktuj się z nami")}>Otrzymaj pełną wycenę na e-mail <FaArrowRight /></button>
+                            <button className="cwd-results-second-column__button-container-button" onClick={() => setShowContactForm(true)}>Otrzymaj pełną wycenę na e-mail <FaArrowRight /></button>
                         </div>
                     </div>
                 </div>
@@ -217,7 +217,7 @@ const CyrografWithDevil = () => {
                             </div>
                             <div className="cwd-add-container-column__button-title">Skontaktuj się z nami</div>
                             <div className="cwd-add-container-column__button-btn">
-                                <button onClick={() => alert("test")}>Napisz teraz!</button>
+                                <button onClick={() => setShowContactForm(true)}>Napisz teraz!</button>
                             </div>
                             <div className="cwd-add-container-column__button-text">
                                 24/7 Całodobowa Pomoc

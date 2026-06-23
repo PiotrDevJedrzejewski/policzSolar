@@ -46,7 +46,8 @@ $transition-normal: 250ms ease;
 $transition-slow: 400ms ease;
 
 // ─── Breakpoints ──────────────────────────────────────────────────────────────
-$bp-sm: 576px;
-$bp-md: 768px;
-$bp-lg: 992px;
-$bp-xl: 1200px;
+$bp-xs: 480px;
+$bp-sm: 1024px;
+$bp-md: 1276px;
+$bp-lg: 1440px;
+$bp-xl: 1680px;

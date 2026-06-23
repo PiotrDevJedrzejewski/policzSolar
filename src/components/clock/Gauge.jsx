@@ -1,22 +1,17 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { GaugeComponent } from 'react-gauge-component';
-import { useSolar, INITIAL_STATE } from '../../context/SolarContext'
-import { calculateSolarYield } from '../../utils/solarCalculator'
+import { useSolar } from '../../context/SolarContext'
 
-const MAX_BENEFIT = calculateSolarYield(INITIAL_STATE).totalPotentialYearlyBenefit * 1.5;
+const MAX_STAGE = 14;
 
 const Gauge = () => {
-    const { inputs } = useSolar();
-    const yearlyBenefit = useMemo(
-        () => calculateSolarYield(inputs).totalPotentialYearlyBenefit,
-        [inputs]
-    );
+    const { stage } = useSolar();
     return (
         <div>
             <GaugeComponent
-                value={yearlyBenefit}
-                minValue={0}
-                maxValue={MAX_BENEFIT}
+                value={stage}
+                minValue={1}
+                maxValue={MAX_STAGE}
                 type="radial"
                 arc={{
                     width: 0.25,
@@ -37,19 +32,9 @@ const Gauge = () => {
                 }}
                 labels={{
                     valueLabel: {
-                        formatTextValue: (value) =>
-                            `${new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0 }).format(value)} zł/rok`,
-                        style: {
-                            fontSize: "36px",
-                            fontStyle: "italic",
-                            fill: "#6b7280",
-                            fontWeight: "bold",
-
-                        },
-                        offsetY: 40,
+                        hide: true,
                     },
                     tickLabels: { hideMinMax: true },
-                    offsetY: 8
                 }}
 
             />

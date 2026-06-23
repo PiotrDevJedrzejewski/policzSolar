@@ -76,7 +76,8 @@ export default function CalculatorInput() {
         <section className="calc-input__inner-content">
           {stages.find((s) => s.id === stage)?.component}
           <div className="calc-gauge">
-            <p className="calc-gauge-steps">Krok: <strong>{activeStages.findIndex((s) => s.id === stage) + 1}/{activeStages.length}</strong></p>
+            {/* 1-index base */}
+            <p className="calc-gauge-steps">Krok: <strong>{activeStages.findIndex((s) => s.id === stage) + 1}/{activeStages.length + 1}</strong></p>
 
             <Gauge />
 

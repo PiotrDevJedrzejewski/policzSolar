@@ -88,9 +88,9 @@ export default function Navbar() {
       <div className="navbar__inner">
         <NavLink to="/" className="navbar__logo">
           <div className="navbar__logo-container">
-            <img src={logo} alt="policzSolar logo" className="navbar__logo-image" />
+            <img src={logo} alt="Policz Solar logo" className="navbar__logo-image" />
           </div>
-          policzSolar
+          Policz Solar
         </NavLink>
 
         <button
