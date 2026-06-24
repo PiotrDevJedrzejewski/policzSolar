@@ -23,7 +23,7 @@ const StepDotation = () => {
                     <input className='steps-radio-input' type="radio" name="dotation" value="advanced"
                         checked={inputs.IntrestInDotaions === 'advanced'}
                         onChange={(e) => updateField('IntrestInDotaions', e.target.value)} />
-                    <span className='steps-radio-input-text'>Rozszerzone (np. Czyste Powietrze, ulga termomodernizacyjna)</span>
+                    <span className='steps-radio-input-text'>Rozszerzone (np. Czyste Powietrze)</span>
                 </label>
             </div>
         </div>

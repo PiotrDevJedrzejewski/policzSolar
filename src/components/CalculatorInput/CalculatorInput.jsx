@@ -38,7 +38,7 @@ export default function CalculatorInput() {
     { id: 10, component: <StepRoofInsulation /> },
     { id: 11, component: <StepHeatingType /> },
     { id: 12, component: <StepPlanning /> },
-    { id: 13, component: <StepDotation />, skip: !hasBattery },
+    { id: 13, component: <StepDotation /> },
     { id: 14, component: <StepHorizonOfInvestment /> },
   ];
 

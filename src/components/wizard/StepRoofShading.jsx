@@ -8,7 +8,7 @@ const StepRoofShading = () => {
         <div className="steps-container">
             <h2 className="steps-title">Jakie jest zacienienie Twojego dachu?</h2>
             <select className="steps-input"
-                value={inputs.roofShading}
+                value={inputs.roofShading ?? ''}
                 onChange={(e) => updateField('roofShading', e.target.value)}>
                 <option value="">Wybierz poziom zacienienia</option>
                 {MODIFIERS.SHADING.map((option) => (
@@ -17,6 +17,13 @@ const StepRoofShading = () => {
                     </option>
                 ))}
             </select>
+            <div className="steps-radio-group" style={{ marginTop: '20px' }}>
+                <label>
+                    <input className='steps-radio-input' type="checkbox" name="planning" value="other"
+                        onChange={() => updateField('roofShading', null)} />
+                    <span className='steps-radio-input-text'>Nie wiem</span>
+                </label>
+            </div>
         </div>
     )
 }

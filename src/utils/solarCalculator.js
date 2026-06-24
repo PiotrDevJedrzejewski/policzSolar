@@ -278,28 +278,37 @@ const estimateGrant = (inputs, investment) => {
         if (!investment.hasBattery) {
             return {
                 amount: 0,
-                label: 'Program podstawowy (Mój Prąd) wymaga magazynu energii – brak kwalifikacji bez magazynu',
+                label: 'Program podstawowy wymaga magazynu energii – brak kwalifikacji bez magazynu',
             };
         }
-        const pvGrant = Math.min(investment.pvCost * 0.16, 6000);
+
+        const pvGrant = Math.min(investment.pvCost * 0.5, 7000);
+        const batteryGrant = Math.min(investment.batteryCost * 0.5, 16000);
+
         return {
-            amount: pvGrant,
-            label: 'Szacunek programu podstawowego (wymaga magazynu energii)',
+            amount: Math.min(pvGrant + batteryGrant, 28000),
+            label: 'Szacunek programu podstawowego',
         };
     }
 
-    const pvGrant = Math.min(investment.pvCost * 0.18, 7000);
-    const batteryGrant = investment.hasBattery ? 16000 : 0;
-    const thermoBase = Math.min(investment.grossCost - pvGrant - batteryGrant, 53000); // limit ustawowy ulgi termomodernizacyjnej
+    const baseGrant = investment.hasBattery
+        ? Math.min(
+            Math.min(investment.pvCost * 0.5, 7000) + Math.min(investment.batteryCost * 0.5, 16000),
+            28000,
+        )
+        : 0;
+    const thermoBase = Math.min(investment.grossCost - baseGrant, 53000); // limit ustawowy ulgi termomodernizacyjnej
     const thermoRelief = Math.max(thermoBase * 0.12, 0);
 
     return {
-        amount: pvGrant + batteryGrant + thermoRelief,
-        label: 'Szacunek programu rozszerzonego + ulga termomodernizacyjna',
+        amount: baseGrant + thermoRelief,
+        label: investment.hasBattery
+            ? 'Szacunek programu rozszerzonego + ulga termomodernizacyjna'
+            : 'Szacunek ulgi termomodernizacyjnej',
     };
 };
 
-const getAssumptions = (inputs, scenario, grant) => {
+const getAssumptions = (inputs, scenario, grant, investment) => {
     const assumptions = [
         'To jest szacunek marketingowo-handlowy, a nie audyt projektowy.',
         `Uwzgledniono obecne ceny energii ${CONSTANTS.CENA_KWH.toFixed(2)} zl/kWh i wzrost ${Math.round(CONSTANTS.WZROST_CENY_ENERGII * 100)}% rocznie.`,
@@ -315,7 +324,9 @@ const getAssumptions = (inputs, scenario, grant) => {
     }
 
     if (grant.amount === 0 && inputs.IntrestInDotaions !== 'none') {
-        assumptions.push('Przy wybranym statusie wlasnosci lub typie budynku przyjalem brak standardowej dotacji dla gospodarstw domowych.');
+        if (investment.hasBattery) {
+            assumptions.push('Przy wybranym statusie wlasnosci lub typie budynku przyjalem brak standardowej dotacji dla gospodarstw domowych.');
+        }
     }
 
     return assumptions;
@@ -399,7 +410,7 @@ export const calculateSolarYield = (inputs = {}) => {
         totalPotentialYearlyBenefit: round(totalPotentialBenefit),
         benefit25Years: round(projected25Years.reduce((sum, item) => sum + item.yearlyBenefit, 0)),
         grantLabel: grant.label,
-        assumptions: getAssumptions(inputs, enhancedScenario, grant),
+        assumptions: getAssumptions(inputs, enhancedScenario, grant, investment),
         planBreakdown,
         projected25Years,
     };

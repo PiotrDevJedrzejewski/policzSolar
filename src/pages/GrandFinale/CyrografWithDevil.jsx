@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSolar } from '../../context/SolarContext'
 import './cyrografWithDevil.scss'
-import { FaCircleCheck, FaPowerOff, FaSackDollar, FaSun, FaBoltLightning, FaArrowRight, FaStar, FaHouseCircleCheck, FaPhoneVolume } from "react-icons/fa6";
+import { FaCircleCheck, FaPowerOff, FaSackDollar, FaSun, FaBoltLightning, FaArrowRight, FaStar, FaHouseCircleCheck, FaPhoneVolume, FaPiggyBank } from "react-icons/fa6";
 import { LuClipboardList } from "react-icons/lu";
 import { ImCalendar } from "react-icons/im";
 import { TbCircleNumber1Filled, TbCircleNumber2Filled, TbCircleNumber3Filled } from "react-icons/tb";
@@ -9,7 +9,9 @@ import { IoShieldCheckmarkOutline } from "react-icons/io5";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { FaRegClock } from "react-icons/fa";
 import handsomefella from '../../assets/dude.png'
-
+import { IoDocumentTextSharp } from "react-icons/io5";
+import { IoMdSearch } from "react-icons/io";
+import { FaLock } from "react-icons/fa";
 
 const currency = (value) => new Intl.NumberFormat('pl-PL', {
     style: 'currency',
@@ -30,63 +32,66 @@ const CyrografWithDevil = () => {
             <div className="cwd-results">
                 <div className="cwd-results-first-column">
                     <div className="cwd-results-first-column__title">
-                        <h1 className="cwd-results-first-column__title-main">Dziekujemy! Twoja wycena jest gotowa</h1>
-                        <h2 className="cwd-results-first-column__title-sub">Nasza instalacja fotowoltaiczna zostala dopasowana do Twoich potrzeb i profilu zuzycia energii</h2>
+                        <h1 className="cwd-results-first-column__title-main">Otrzymaj pełny raport i spersonalizowaną ofertę</h1>
+                        {/* <h2 className="cwd-results-first-column__title-sub">Nasza instalacja fotowoltaiczna zostala dopasowana do Twoich potrzeb i profilu zuzycia energii</h2> */}
                     </div>
                     <div className="cwd-results-first-column__benefit">
                         <div className="cwd-results-first-column__benefit-wrapper">
                             <div className="cwd-results-first-column__benefit-icon">
-                                <FaCircleCheck />
+                                <IoDocumentTextSharp />
                             </div>
-                            <h1 className="cwd-results-first-column__benefit-title">Oszczedzaj od pierwszego dnia</h1>
-                            <h2 className="cwd-results-first-column__benefit-subtitle">Zacznij placic nizsze rachunki za prad juz od pierwszego miesiaca po instalacji</h2>
+                            <h1 className="cwd-results-first-column__benefit-title">Pełny raport PDF</h1>
+                            <h2 className="cwd-results-first-column__benefit-subtitle">Szczegółowa wycena instalacji dopasowana do twojego domu, pełna analiza techniczna, oferta wariantów i rekomendacje.</h2>
                         </div>
                         <div className="cwd-results-first-column__benefit-wrapper">
-                            <div className="cwd-results-first-column__benefit-icon"><FaCircleCheck /></div>
-                            <h1 className="cwd-results-first-column__benefit-title">Bezpieczena inwestycja na lata</h1>
-                            <h2 className="cwd-results-first-column__benefit-subtitle">25 lat gwarancji na panele i wysokiej jakosci komponenty</h2>
+                            <div className="cwd-results-first-column__benefit-icon"><FaPiggyBank /></div>
+                            <h1 className="cwd-results-first-column__benefit-title">Wyliczenie dotacji Mój prąd 7.0</h1>
+                            <h2 className="cwd-results-first-column__benefit-subtitle">Sprawdzimy, na jaką dotację możesz liczyć i ile realnie zaoszczędzisz.</h2>
                         </div>
                         <div className="cwd-results-first-column__benefit-wrapper">
-                            <div className="cwd-results-first-column__benefit-icon"><FaCircleCheck /></div>
-                            <h1 className="cwd-results-first-column__benefit-title">Kompleksowa obsługa</h1>
-                            <h2 className="cwd-results-first-column__benefit-subtitle">Zajmujemy się wszystkim, od projektu po instalację i serwis</h2>
+                            <div className="cwd-results-first-column__benefit-icon"><IoMdSearch /></div>
+                            <h1 className="cwd-results-first-column__benefit-title">Bezpłatny audyt techniczny</h1>
+                            <h2 className="cwd-results-first-column__benefit-subtitle">Nasi eksperci przeanalizują twoją nieruchomość i zaproponują najlepsze rozwiązanie. Wartość <strong>300-500zł</strong></h2>
                         </div>
-                        <div className="cwd-results-first-column__benefit-wrapper">
-                            <div className="cwd-results-first-column__benefit-icon"><FaCircleCheck /></div>
+                        <div className="cwd-results-first-column__benefit-wrapper" style={{ backgroundColor: '#dee8ff', borderRadius: '8px', padding: '16px', marginTop: '12px' }}>
+                            <div className="cwd-results-first-column__benefit-icon"><FaLock /></div>
                             <h1 className="cwd-results-first-column__benefit-title">
-                                Ekologiczne rozwiazanie
+                                Twoje dane są u nas bezpieczne
                             </h1>
                             <h2 className="cwd-results-first-column__benefit-subtitle">
-                                Zmniejsz swoj wplyw na srodowisko i przyczyn sie do czystszego powietrza dla przyszlych pokolen
+                                Wypełnij formularz, aby otrzymać pełny raport i spersonalizowaną ofertę
                             </h2>
+                        </div>
+                        <div className="cwd-results-first-column__benefit-button-container">
+                            <button className="cwd-results-first-column__benefit-button" onClick={() => setShowContactForm(true)}>Otrzymaj pełną wycenę na e-mail <FaArrowRight /></button>
                         </div>
                     </div>
                 </div>
                 <div className="cwd-results-second-column">
                     <div className="cwd-results-second-column__wrappper">
                         <h1 className="cwd-results-second-column__wrappper__title">Twoj potencjalny zysk przez 25 lat</h1>
-                        <span className="cwd-results-second-column__wrappper__number"> NUMBER </span>
+                        <span className="cwd-results-second-column__wrappper__number">{currency(results.benefit25Years)}</span>
                         <div className="cwd-results-second-column__dynamic-four">
                             <div className="cwd-results-second-column__dynamic-four-item">
                                 {/* icon scss in _cwd-results.scss */}
                                 <FaPowerOff className="icon-power-off" />
                                 <p>Rekomendowana moc instalacji</p>
-                                <span> 4 kWP </span>
+                                <span>{number(results.installedKwp, ' kWp')}</span>
                             </div>
                             <div className="cwd-results-second-column__dynamic-four-item">
                                 <FaSun className="icon-sun" />
                                 <p>Szacowane produkcja roczna</p>
-                                <span> 3429 KWh </span>
+                                <span>{number(results.yearlyProductionKwh, ' kWh')}</span>
                             </div>
                             <div className="cwd-results-second-column__dynamic-four-item">
                                 <FaBoltLightning className="icon-bolt-lightning" />
                                 <p>Autokonsumpcja</p>
-                                <span> 22% </span>
+                                <span>{number(results.selfConsumptionRate, '%')}</span>
                             </div>
                             <div className="cwd-results-second-column__dynamic-four-item">
                                 <FaSackDollar className="icon-sack-dollar" />
                                 <p>Oszczędność roczna</p>
-                                <span> Wysoka! </span>
+                                <span>{currency(results.yearlySavings)}</span>
                             </div>
                         </div>
                         <div className="cwd-results-second-column__button-container">

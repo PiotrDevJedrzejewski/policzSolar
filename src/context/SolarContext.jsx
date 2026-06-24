@@ -14,10 +14,10 @@ export const INITIAL_STATE = {
   PannelPlacement: ['roof'], // 'roof' | 'ground' (multi-select)
   BuildingType: 'house', // single-family | multi-family | commercial
   roofArea: '45', // in m² 20-100+ slider
-  roofOrientation: 'S', // N, NE, E, SE, S, SW, W, NW
+  roofOrientation: 'S', // N, NE, E, SE, S, SW, W, NW, null
   roofAge: '0-5', // 0-5 | 6-10 | 11-20 | 21-30
-  roofShading: 'none', // none, partial, heavy
-  insulationQuality: 'average', // poor, average, good
+  roofShading: 'none', // none, partial, heavy, null
+  insulationQuality: 'average', // poor, average, good, null
   heatingType: 'electric', // electric, gas, coal, heat pump
   planingInTwoYears: ['heat-pump'], // multi-select: electric-car, home-battery, heat-pump, air-conditioning, other
   IntrestInDotaions: 'basic', // none, basic, advanced
