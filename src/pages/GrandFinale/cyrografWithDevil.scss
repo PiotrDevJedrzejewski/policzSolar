@@ -15,3 +15,9 @@
     background-color: $color-text;
     flex-direction: column;
 }
+
+@media (max-width: 700px) {
+    .cyrograf-with-devil {
+        margin: 0;
+    }
+}

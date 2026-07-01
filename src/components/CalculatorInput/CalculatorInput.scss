@@ -2,25 +2,29 @@
 @use '../../styles/mixins' as *;
 @use 'sass:color';
 
+$container-width: 800px;
+
 .calc-input {
-  background: transparent;
   margin: 0 $spacing-lg;
   position: relative;
   display: flex;
   flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   &__inner {
-    @include container;
     background: #f1f9fa;
     border-radius: $border-radius-lg;
     padding: $spacing-lg;
     margin-top: $spacing-lg;
     //shadow
     box-shadow: $shadow-lg;
-    min-height: 420px;
     display: flex;
     flex-direction: column;
     position: relative;
+    width: $container-width;
+    min-height: 460px;
 
 
 
@@ -39,8 +43,7 @@
         background: none;
         border: none;
         cursor: pointer;
-        position: absolute;
-        left: $spacing-lg;
+        padding-right: $spacing-xl;
         font-size: $font-size-xl;
 
         &:hover {
@@ -167,6 +170,7 @@
 
     @include respond-below(md) {
       flex-direction: column;
+      align-items: center;
     }
   }
 }
@@ -187,10 +191,16 @@
   }
 }
 
+.calc__resetButtonContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: $spacing-lg;
+  width: $container-width;
+  padding-left: $spacing-xl;
+}
+
+
 .calc__resetButton {
-  position: absolute;
-  bottom: -$spacing-3xl;
-  left: $spacing-lg;
   padding: $spacing-sm $spacing-md;
   background-color: $color-secondary;
   color: #fff;
@@ -201,5 +211,87 @@
 
   &:hover {
     background-color: darken($color-secondary, 10%);
+  }
+}
+
+@media (max-width: 850px) {
+  .gauge-container {
+    display: none;
+  }
+
+  .calc__resetButtonContainer,
+  .calc-input__inner {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) and (min-width: $bp-smobile) {
+  .calc-input {
+    margin: 0 $spacing-sm;
+
+    &__inner {
+      padding: $spacing-md;
+      margin-top: $spacing-md;
+      min-height: auto;
+
+      &-navigation {
+        font-size: $font-size-md;
+
+        >button {
+          padding-right: $spacing-md;
+          font-size: $font-size-lg;
+        }
+      }
+    }
+
+    &__title {
+      font-size: $font-size-md;
+      margin-bottom: $spacing-sm;
+    }
+
+    &__form {
+      gap: $spacing-md;
+    }
+
+    &__group {
+      padding: $spacing-sm;
+    }
+
+    &__legend {
+      font-size: 12px;
+    }
+
+    &__label {
+      font-size: 12px;
+    }
+
+    &__field {
+      padding: $spacing-xs $spacing-sm;
+      font-size: 12px;
+    }
+
+    &__btn {
+      padding: $spacing-xs $spacing-md;
+      font-size: 12px;
+    }
+  }
+
+  .calc-gauge {
+    margin-top: $spacing-md;
+
+    &-steps {
+      font-size: 12px;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .calc__resetButtonContainer {
+    margin-top: $spacing-md;
+    padding-left: $spacing-md;
+  }
+
+  .calc__resetButton {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 16px;
   }
 }

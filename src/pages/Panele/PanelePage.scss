@@ -2,8 +2,14 @@
 @use '../../styles/mixins' as *;
 
 .panele-page {
+  width: 100%;
   display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__content {
+    width: 100%;
+    //64 for button
+    margin-top: calc($spacing-lg + 64px);
+  }
 }

@@ -10,8 +10,9 @@
   box-shadow: $shadow-sm;
 
   &__inner {
-    @include container;
     @include flex-between;
+    width: 100%;
+    padding: 0 $spacing-xl;
     height: 100%;
   }
 

@@ -16,6 +16,10 @@
             padding-left: calc($spacing-lg + 300px);
 
             &-column {
+                &:last-child {
+                    margin-left: auto;
+                }
+
                 &__img-container {
                     position: absolute;
                     left: 10px;
@@ -64,10 +68,9 @@
 
                 &__button-wrapper {
                     display: grid;
-
+                    align-self: flex-end;
                     grid-template-columns: 50px 1fr;
                     grid-template-rows: auto auto auto;
-
                     align-items: center;
                     justify-content: center;
                     gap: $spacing-md;
@@ -75,8 +78,7 @@
                     border-radius: $border-radius-lg;
                     padding: $spacing-lg;
                     box-shadow: $shadow-lg;
-                    position: absolute;
-                    right: 10px;
+
                 }
 
                 &__button-icon {
@@ -117,6 +119,157 @@
                     color: $color-text-third;
                     text-align: center;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: calc($bp-md - 1px)) {
+    .cwd-add-container {
+        flex-direction: column;
+        padding-left: $spacing-lg;
+
+        &-column {
+            &:last-child {
+                margin-left: 0;
+                margin-top: $spacing-lg;
+            }
+
+            &__img-container {
+                position: static;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .cwd-add {
+        margin: $spacing-lg;
+        margin-top: $spacing-xl;
+        padding: $spacing-md;
+    }
+
+    .cwd-add-container {
+        padding-left: $spacing-md;
+
+        &-column {
+            &__img {
+                width: 200px;
+                height: 200px;
+            }
+
+            &__subtitle {
+                font-size: $font-size-lg;
+            }
+
+            &__subtitle-2 {
+                font-size: $font-size-sm;
+            }
+
+            &__button-wrapper {
+                padding: $spacing-md;
+            }
+
+            &__button-icon {
+                font-size: 36px;
+            }
+
+            &__button-title {
+                font-size: $font-size-lg;
+            }
+
+            &__button-btn button {
+                font-size: $font-size-sm;
+                padding: $spacing-xs $spacing-md;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-bmobile) {
+    .cwd-add {
+        margin: $spacing-md;
+        margin-top: $spacing-lg;
+        padding: $spacing-sm;
+    }
+
+    .cwd-add-container {
+        padding-left: $spacing-sm;
+
+        &-column {
+            &__img {
+                width: 160px;
+                height: 160px;
+            }
+
+            &__subtitle {
+                font-size: $font-size-md;
+            }
+
+            &__button-icon {
+                font-size: 28px;
+            }
+
+            &__button-title {
+                font-size: $font-size-md;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-mobile) {
+    .cwd-add-container {
+        &-column {
+            &__img {
+                width: 130px;
+                height: 130px;
+            }
+
+            &__subtitle {
+                font-size: $font-size-sm;
+            }
+
+            &__subtitle-2 {
+                font-size: 12px;
+            }
+
+            &__button-wrapper {
+                padding: $spacing-sm;
+                gap: $spacing-sm;
+            }
+
+            &__button-icon {
+                font-size: 22px;
+            }
+
+            &__button-title {
+                font-size: $font-size-sm;
+            }
+        }
+    }
+}
+
+@media (max-width: $bp-smobile) {
+    .cwd-add-container {
+        &-column {
+            &__img {
+                width: 100px;
+                height: 100px;
+            }
+
+            &__button-title {
+                font-size: 13px;
+            }
+
+            &__button-btn button {
+                font-size: 12px;
+            }
+
+            &__button-text {
+                font-size: 11px;
             }
         }
     }

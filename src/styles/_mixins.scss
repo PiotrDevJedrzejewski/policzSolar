@@ -54,16 +54,6 @@
 }
 
 // ─── Layout helpers ───────────────────────────────────────────────────────────
-@mixin container {
-  width: 100%;
-  max-width: $max-width;
-  margin-inline: auto;
-  padding-inline: $spacing-md;
-
-  @include respond-to(md) {
-    padding-inline: $spacing-lg;
-  }
-}
 
 @mixin flex-center {
   display: flex;

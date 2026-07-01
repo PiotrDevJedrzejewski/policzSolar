@@ -6,8 +6,13 @@ export default function PanelePage() {
   // const { stage } = useSolar();
 
   return (
-    <section className="panele-page">
-      <CalculatorInput />
-    </section>
+    <div style={{ width: '100%' }}>
+      <section className="panele-page">
+        <CalculatorInput />
+      </section>
+      {/* <div className="panele-page__content">
+        hello
+      </div> */}
+    </div>
   );
 }

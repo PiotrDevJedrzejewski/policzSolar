@@ -78,12 +78,16 @@ export default function CalculatorInput() {
           <div className="calc-gauge">
             {/* 1-index base */}
             <p className="calc-gauge-steps">Krok: <strong>{activeStages.findIndex((s) => s.id === stage) + 1}/{activeStages.length + 1}</strong></p>
+            <div className="gauge-container">
 
-            <Gauge />
+              <Gauge />
 
+            </div>
             <button className="steps-button" onClick={goNext}>Dalej</button>
           </div>
         </section>
+      </div>
+      <div className="calc__resetButtonContainer">
         <button className="calc__resetButton" onClick={resetAll}>
           Reset
         </button>
