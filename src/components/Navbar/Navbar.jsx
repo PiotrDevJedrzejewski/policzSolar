@@ -93,7 +93,7 @@ export default function Navbar() {
           Policz Solar
         </NavLink>
 
-        <button
+        {/* <button
           className="navbar__hamburger"
           onClick={() => setMobileOpen((prev) => !prev)}
           aria-label="Menu"
@@ -102,7 +102,7 @@ export default function Navbar() {
           <span />
           <span />
           <span />
-        </button>
+        </button> */}
 
         <nav className={`navbar__nav${mobileOpen ? ' navbar__nav--open' : ''}`}>
           {/* <ul className="navbar__list">

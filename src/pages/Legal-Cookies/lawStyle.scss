@@ -1,0 +1,14 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.law-container {
+    @include flex-center;
+    font-size: 2rem;
+    background-color: $color-text;
+    color: $color-text-third;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-md;
+    width: 100%;
+    margin: $spacing-lg;
+    padding: $spacing-lg;
+}

@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import './Layout.scss';
 import ContactForm from '../ContactForm/ContactForm';
 import { useSolar } from '../../context/SolarContext';
+import Cookie from '../popup/Cookie';
 
 export default function Layout() {
   const { showContactForm } = useSolar();
@@ -18,6 +19,7 @@ export default function Layout() {
       </main>
       <Footer />
       {showContactForm && <ContactForm />}
+      <Cookie />
     </div>
   );
 }

@@ -29,6 +29,7 @@ export function SolarProvider({ children }) {
   const [stage, setStage] = useLocalStorage('solar_stage', 1);
   const [discount, setDiscount] = useLocalStorage('solar_discount', 0);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [cookiesAccepted, setCookiesAccepted] = useLocalStorage('cookies_accepted', false);
 
   const updateField = (field, value) => {
     setInputs((prev) => ({ ...prev, [field]: value }));
@@ -51,7 +52,7 @@ export function SolarProvider({ children }) {
   const results = calculateSolarYield(inputs);
 
   return (
-    <SolarContext.Provider value={{ inputs, updateField, resetInputs, stage, setStage, discount, setDiscount, showContactForm, resetAll, setShowContactForm, results }}>
+    <SolarContext.Provider value={{ inputs, updateField, resetInputs, stage, setStage, discount, setDiscount, showContactForm, resetAll, setShowContactForm, results, cookiesAccepted, setCookiesAccepted }}>
       {children}
     </SolarContext.Provider>
   );
